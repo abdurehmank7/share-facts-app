@@ -129,5 +129,8 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-# macos 
+# MacOS
 .DS_Store
+
+# temp 
+data.js
