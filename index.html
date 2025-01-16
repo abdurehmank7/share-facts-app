@@ -1,105 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Today I learned!</title>    
-</head>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Coiny&family=Sono:wght@200..800&display=swap"
+			rel="stylesheet"
+		/>
 
-<body>
-    <header>
-        <img src="./logo.png" height="68" width="68" alt="Today I Learned Logo" />
+		<link rel="stylesheet" href="./style.css" />
+		<title>Today I learned!</title>
+	</head>
 
-        <h1>Today I learned!</h1>
+	<body>
+		<div class="container">
+			<header class="header">
+				<div class="logo">
+					<img
+						src="./logo.png"
+						height="68"
+						width="68"
+						alt="Today I Learned Logo"
+					/>
 
-        <button>SHARE A FACT</button>
-    </header>
+					<h1>Today I learned!</h1>
+				</div>
 
-    <form action="">
-        <input type="text" placeholder="Share a fact with World..." name="" id="">
+				<button class="btn btn-large">SHARE A FACT</button>
+			</header>
 
-        <span>200</span>
+			<form class="fact-form">
+				<input
+					type="text"
+					placeholder="Share a fact with World..."
+					name=""
+					id=""
+				/>
 
-        <input type="text" placeholder="Trustworthy Source ..." name="" id="">
+				<span>200</span>
 
-        <select name="" id="">
-            <option value="">Choose Category: </option>
-            <option value="technology">TECHNOLOGY</option>
-            <option value="science">SCIENCE</option>
-            <option value="finance">FINANCE</option>
+				<input
+					type="text"
+					placeholder="Trustworthy Source ..."
+					name=""
+					id=""
+				/>
 
-            
-        </select>
-        
-        <button>POST</button>
+				<select name="" id="">
+					<option value="">Choose Category:</option>
+					<option value="technology">TECHNOLOGY</option>
+					<option value="science">SCIENCE</option>
+					<option value="finance">FINANCE</option>
+				</select>
 
-    </form>
+				<button class="btn btn-large">POST</button>
+			</form>
 
-    <main>
+			<main class="main">
+				<aside>
+					<ul>
+						<li class="category">
+							<button class="btn btn-all-categories">ALL</button>
+						</li>
 
-        <aside>
-            <ul>
-                <li>
-                    <button>ALL</button>
-                </li>
-    
-                <li>
-                    <button>TECHNOLOGY</button>
-                </li>
-    
-                <li><button>SCIENCE</button></li>
-    
-            </ul>
+						<li class="category">
+							<button
+								class="btn btn-category"
+								style="background-color: #3b82f6"
+							>
+								TECHNOLOGY
+							</button>
+						</li>
 
-        </aside>
+						<li class="category">
+							<button
+								class="btn btn-category"
+								style="background-color: #16a34a"
+							>
+								SCIENCE
+							</button>
+						</li>
+					</ul>
+				</aside>
 
-        <section>
+				<section>
+					<ul>
+						<li class="fact">
+							<p>
+								React is being developed by Meta (formerly
+								facebook).
+								<a
+									class="source"
+									href="https://opensource.fb.com/"
+									target="_blank"
+									>(Source)</a
+								>
+							</p>
+							<span class="tag" style="background-color: #3b82f6"
+								>technology</span
+							>
+							<div class="vote-buttons">
+								<button>👍 24</button>
+								<button>🤯 9</button>
+								<button>⛔️ 4</button>
+							</div>
+						</li>
 
-        <ul>
-            <li>
-                <p>
-                    React is being developed by Meta (formerly facebook).
-                    <a href="https://opensource.fb.com/" target="_blank">(Source)</a>
-                    <span>#technology#</span>
-                </p>
+						<li class="fact">
+							<p>
+								Millennial dads spend 3 times as much time with
+								their kids than their fathers spent with them.
+								In 1982, 43% of fathers had never changed a
+								diaper. Today, that number is down to 3%.
+								<a
+									class="source"
+									href="https://www.mother.ly/parenting/millennial-dads-spend-more-time-with-their-kids"
+									target="_blank"
+								>
+									(Source)</a
+								>
+							</p>
+							<span class="tag" style="background-color: #eab308"
+								>society</span
+							>
 
-                <div>
-                    <button> <strong>👍 24</strong> </button>
-                    <button> <strong>🤯 9</strong> </button>
-                    <button> <strong>⛔️ 4</strong> </button>
-                </div>
-            </li>
-
-            <li>
-                <p>
-                    Millennial dads spend 3 times as much time with their
-                    kids than their fathers spent with them. In 1982, 43% of
-                    fathers had never changed a diaper. Today, that number
-                    is down to 3%.
-                    <a href="https://www.mother.ly/parenting/millennial-dads-spend-more-time-with-their-kids"
-                        target="_blank">
-                        (Source)</a>
-                    <span>#society#</span>
-                </p>
-
-                <div>
-                    <button> <strong>👍 11</strong> </button>
-                    <button> <strong>🤯 2</strong> </button>
-                    <button> <strong>⛔️ 0</strong> </button>
-                </div>
-            </li>
-        </ul>
-
-        </section>
-
-
-
-
-
-
-
-    </main>
-</body>
-
+							<div class="vote-buttons">
+								<button>👍 11</button>
+								<button>🤯 2</button>
+								<button>⛔️ 0</button>
+							</div>
+						</li>
+					</ul>
+				</section>
+			</main>
+		</div>
+	</body>
 </html>
