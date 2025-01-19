@@ -29,10 +29,10 @@
 					<h1>Today I learned!</h1>
 				</div>
 
-				<button class="btn btn-large">SHARE A FACT</button>
+				<button class="btn btn-large btn-open">SHARE A FACT</button>
 			</header>
 
-			<form class="fact-form">
+			<form class="fact-form hidden">
 				<input
 					type="text"
 					placeholder="Share a fact with World..."
@@ -61,7 +61,7 @@
 
 			<main class="main">
 				<aside>
-					<ul>
+					<ul class="aside-cateogories-ul">
 						<li class="category">
 							<button class="btn btn-all-categories">ALL</button>
 						</li>
@@ -87,7 +87,7 @@
 				</aside>
 
 				<section>
-					<ul>
+					<ul class="facts-list">
 						<li class="fact">
 							<p>
 								React is being developed by Meta (formerly
@@ -137,5 +137,7 @@
 				</section>
 			</main>
 		</div>
+
+		<script type="module" src="./script.js"></script>
 	</body>
 </html>

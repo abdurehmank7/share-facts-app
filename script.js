@@ -14,10 +14,30 @@ const factsList = document.querySelector(".facts-list");
 // creating out embedded html list
 factsList.innerHTML = "";
 
+const asideCategoryList = document.querySelector(".aside-cateogories-ul");
+
+// remove the embedded category list items leaving all in place
+const lis = asideCategoryList.querySelectorAll("li:not(:first-child)");
+lis.forEach((elem) => elem.remove());
+// adding categories to side
+
+CATEGORIES.forEach((elem) => {
+	const { name, color } = elem;
+	const categoryListItem = document.createElement("li");
+	categoryListItem.classList.add("category");
+
+	const categoryButton = document.createElement("button");
+
+	categoryButton.classList.add("btn", "btn-category");
+	categoryButton.style = `background-color: ${color}`;
+	categoryButton.textContent = `${name}`;
+
+	categoryListItem.appendChild(categoryButton);
+
+	asideCategoryList.appendChild(categoryListItem);
+});
+
 // adding facts to the list dynamically from initialFacts along with the
-
-//
-
 // input:categoryname, categoryObjList return color
 const findColor = (categoryObjList, categoryName) => {
 	for (let index = 0; index < categoryObjList.length; index++) {
@@ -28,9 +48,11 @@ const findColor = (categoryObjList, categoryName) => {
 	}
 };
 
-//
+// this function will return a list dom element to be added to unodered list
+// look at the initial html list elements for reference
 
 const createListElement = (factObject) => {
+	// destructure factObject
 	const {
 		id,
 		text,
@@ -42,13 +64,18 @@ const createListElement = (factObject) => {
 		createdIn,
 	} = factObject;
 
+	// create parent list element
 	const listElement = document.createElement("li");
+	// added class
 	listElement.classList.add("fact");
 
 	const paragraph = document.createElement("p");
+	// textContent is inner text that is displayed
 	paragraph.textContent = text;
+	// add paragraph element to parent element
 	listElement.appendChild(paragraph);
 
+	// create anchor DOM element for source, is clickable
 	const anchorTag = document.createElement("a");
 	anchorTag.classList.add("source");
 	anchorTag.href = source;
@@ -56,6 +83,7 @@ const createListElement = (factObject) => {
 	anchorTag.textContent = "(Source)";
 	paragraph.append(anchorTag);
 
+	// create DOM element for category
 	const spamElement = document.createElement("span");
 	spamElement.classList.add("tag");
 
@@ -65,6 +93,7 @@ const createListElement = (factObject) => {
 	spamElement.textContent = category;
 	listElement.appendChild(spamElement);
 
+	// making div for buttons
 	const divButton = document.createElement("div");
 	divButton.classList.add("vote-buttons");
 	const likeButton = document.createElement("button");

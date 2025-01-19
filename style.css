@@ -12,6 +12,10 @@ body {
 	padding: 48px 60px;
 }
 
+.hidden {
+	display: none !important;
+}
+
 h1 {
 	font-size: 42px;
 	text-transform: uppercase;
@@ -60,12 +64,8 @@ h1 {
 @media (max-width: 900px) {
 	.main {
 		grid-template-columns: 1fr;
-
 	}
-
 }
-
-
 
 /* ELEMENTS */
 
@@ -104,13 +104,12 @@ h1 {
 /* this styles are overwritten for screens below 1200px */
 @media (max-width: 1200px) {
 	.fact {
-		background-color: red;
+		/* background-color: red; */
 		flex-direction: column;
 		/* now gap is vertical space */
 		gap: 12px;
 
 		align-items: flex-end;
-
 	}
 }
 
@@ -211,10 +210,7 @@ ul {
 	background-image: none;
 }
 
-
-
 /* FORM */
-
 
 .fact-form {
 	background-color: #44403c;
@@ -254,7 +250,6 @@ ul {
 	margin-right: 18px;
 }
 
-
 @media (max-width: 1000px) {
 	body {
 		padding: 32px 48px;
@@ -262,11 +257,9 @@ ul {
 	.fact-form {
 		flex-direction: column;
 		align-items: stretch;
-
-		
 	}
 	.fact-form input,
 	.fact-form select {
 		width: 100%;
-	}	
+	}
 }

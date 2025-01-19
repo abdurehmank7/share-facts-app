@@ -40,6 +40,14 @@ export const initialFacts = [
 		votesFalse: 1,
 		createdIn: 2015,
 	},
+	{
+		id: 4,
+		text: "There is enough DNA in the average person’s body to stretch from the sun to Pluto and back — 17 times",
+		source: "https://skeptics.stackexchange.com/questions/10606/length-of-uncoiled-human-dna",
+		category: "science",
+		votesInteresting: 6,
+		votesMindblowing: 13,
+		votesFalse: 2,
+		createdIn: 2015,
+	},
 ];
-
-// export default { CATEGORIES, initialFacts };
