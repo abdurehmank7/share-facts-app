@@ -1,18 +1,43 @@
+// IMPORTS
 import { CATEGORIES, initialFacts } from "./data.js";
 
-console.log(CATEGORIES);
-console.log(initialFacts);
+// console.log(initialFacts);
 
 // console.log("Hello World!")
 
 const btn = document.querySelector(".btn-open");
-console.dir(btn); // gives btn as dom object with drop down
+// console.dir(btn); // gives btn as dom object with drop down
 
 const form = document.querySelector(".fact-form");
 
 const factsList = document.querySelector(".facts-list");
 // creating out embedded html list
-factsList.innerHTML = "";
+// factsList.innerHTML = "";
+
+// loading data from Supabase
+
+loadFacts();
+
+async function loadFacts(params) {
+	const res = await fetch(
+		"https://gkcojvcxjiqhwrctfnxi.supabase.co/rest/v1/facts",
+		{
+			headers: {
+				apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdrY29qdmN4amlxaHdyY3RmbnhpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzcwMDk3NjcsImV4cCI6MjA1MjU4NTc2N30.QBjcTWtjzXF4FxDyjnCVNJd7xzkjWN3qdaAlP9TCXtQ",
+				authorization:
+					"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdrY29qdmN4amlxaHdyY3RmbnhpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzcwMDk3NjcsImV4cCI6MjA1MjU4NTc2N30.QBjcTWtjzXF4FxDyjnCVNJd7xzkjWN3qdaAlP9TCXtQ",
+			},
+		}
+	);
+
+	const data = await res.json();
+	// console.log(data);
+
+	data.forEach((fact) => {
+		const listElement = createListElement(fact);
+		factsList.insertAdjacentElement("beforeend", listElement);
+	});
+}
 
 const asideCategoryList = document.querySelector(".aside-cateogories-ul");
 
@@ -40,12 +65,13 @@ CATEGORIES.forEach((elem) => {
 // adding facts to the list dynamically from initialFacts along with the
 // input:categoryname, categoryObjList return color
 const findColor = (categoryObjList, categoryName) => {
-	for (let index = 0; index < categoryObjList.length; index++) {
-		const element = categoryObjList[index];
-		if (element.name === categoryName) {
-			return element.color;
-		}
-	}
+	// console.log(categoryObjList);
+
+	// the answer was an object inside an array
+	const [filteredObject] = categoryObjList.filter((eachObject) => {
+		return eachObject.name === categoryName;
+	});
+	return filteredObject.color;
 };
 
 // this function will return a list dom element to be added to unodered list
@@ -111,14 +137,14 @@ const createListElement = (factObject) => {
 	return listElement;
 };
 
-initialFacts.forEach((elem) => {
-	const listElement = createListElement(elem);
-	factsList.insertAdjacentElement("beforeend", listElement);
-});
+// initialFacts.forEach((elem) => {
+// 	const listElement = createListElement(elem);
+// 	factsList.insertAdjacentElement("beforeend", listElement);
+// });
 
 // Toggle form visibility
 btn.addEventListener("click", () => {
-	console.log("Button was CLICKed");
+	// console.log("Button was CLICKed");
 	if (form.classList.contains("hidden")) {
 		form.classList.remove("hidden");
 		btn.textContent = "close";
